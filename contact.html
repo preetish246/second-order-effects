@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Second Order Effects</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div>
+      <a class="site-title" href="index.html">Second Order Effects</a>
+      <div class="tagline">The first consequence is easy to see. I write about the ones after that.</div>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html">Articles</a>
+      <a href="about.html">Who Am I</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article class="post">
+      <h1>Get in touch</h1>
+      <p class="post-dek">Reactions, corrections, or just want to say hello — this goes straight to my inbox.</p>
+
+      <form id="contact-form" action="https://formspree.io/f/xaewndko" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit">Send message</button>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Second Order Effects — written and maintained by Preetish.
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    status.textContent = 'Sending…';
+    status.className = 'form-status';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.reset();
+        status.textContent = 'Thanks — your message has been sent.';
+        status.className = 'form-status form-status-ok';
+      } else {
+        status.textContent = 'Something went wrong. Please try again, or email me directly.';
+        status.className = 'form-status form-status-error';
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again, or email me directly.';
+      status.className = 'form-status form-status-error';
+    }
+  });
+</script>
+<script src="script.js" defer></script>
+
+</body>
+</html>

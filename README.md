@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Second Order Effects
 
-## Getting Started
+A personal blog. Plain HTML/CSS, no build step, no framework, no dependencies.
 
-First, run the development server:
+## Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `index.html` — homepage, lists all articles
+- `about.html` — Who Am I page
+- `contact.html` — contact form (see note in `DEPLOY.md` about setting up Formspree)
+- `styles.css` — shared styles for every page
+- `script.js` — the small scroll-in effect used across every page (progressive enhancement — site works fine without it)
+- `articles/` — one HTML file per article
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Cleanup note
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This repository is now a standalone static website. It contains only the files needed
+for the live site: `index.html`, `about.html`, `contact.html`, `styles.css`,
+`script.js`, `articles/`, plus supporting docs like `DEPLOY.md` and `COMMENTS.md`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you want to deploy the site, open `index.html` in a browser to preview; no build step
+is required.
 
-## Learn More
+## Editing
 
-To learn more about Next.js, take a look at the following resources:
+Open any `.html` file in a text editor (VS Code, or even TextEdit) and edit directly —
+there's nothing to compile or run. Open `index.html` in a browser to preview.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploying
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See `DEPLOY.md` for step-by-step Cloudflare Pages instructions and how to connect the
+`second-order-effects.com` domain.
 
-## Deploy on Vercel
+## Comments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every article has a public comments section (powered by Giscus / GitHub Discussions) ready to go —
+see `COMMENTS.md` for the 10-minute setup.

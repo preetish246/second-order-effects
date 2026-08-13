@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# leftover create-next-app scaffold (this is now a plain static HTML site —
+# these files can't be deleted from the sandbox that built this repo, but they
+# should never be committed or deployed; delete them manually via Finder when convenient)
+/app
+/public
+package.json
+package-lock.json
+tsconfig.json
+next.config.ts
+eslint.config.mjs
+postcss.config.mjs
+AGENTS.md
+CLAUDE.md
+
+# build artifacts
+*.zip
